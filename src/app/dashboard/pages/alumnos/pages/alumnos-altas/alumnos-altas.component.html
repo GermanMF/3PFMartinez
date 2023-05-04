@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Añadir nuevo alumno</h2>
+<mat-dialog-content>
+  <form [formGroup]="alumnosForm" (ngSubmit)="onSubmit()" id="alumnosAltas">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Nombre </mat-label>
+            <input matInput [formControl]="nombreControl" placeholder="Nombre del alumno" />
+            <mat-error
+              *ngIf="nombreControl.hasError('required')"
+            >
+              Campo requerido
+            </mat-error>
+            <mat-error
+              *ngIf="nombreControl.hasError('minlength')"
+            >
+              Se esperan al menos 3 caractéres
+        </mat-error>
+            <mat-error
+              *ngIf="nombreControl.hasError('maxlength')"
+            >
+              Se esperan 15 caractéres como máximo
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Apellido </mat-label>
+            <input [formControl]="apellidoControl" matInput placeholder="Primer apellido" />
+            <mat-error
+              *ngIf="apellidoControl.hasError('required')"
+            >
+              Campo requerido
+            </mat-error>
+            <mat-error
+              *ngIf="apellidoControl.hasError('minlength')"
+            >
+              Se esperan al menos 3 caractéres
+            </mat-error>
+            <mat-error
+              *ngIf="apellidoControl.hasError('maxlength')"
+            >
+              Se esperan 15 caractéres como máximo
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="container subsequentRow">
+        <label>Toma de clases:</label>
+        <mat-radio-group [formControl]="locacionControl"
+          class="row"
+          color="primary"
+        >
+          <div class="col-6">
+            <mat-radio-button value="true">Remoto</mat-radio-button>
+          </div>
+          <div class="col-6">
+            <mat-radio-button value="false">Presencial</mat-radio-button>
+          </div>
+        </mat-radio-group>
+        <mat-error *ngIf="locacionControl.hasError('required')">
+          Seleccion algúna opción
+        </mat-error>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button type="submit" form="alumnosAltas" [disabled]="!alumnosForm.valid" [mat-dialog-close]="true">Añadir alumno</button>
+</mat-dialog-actions>

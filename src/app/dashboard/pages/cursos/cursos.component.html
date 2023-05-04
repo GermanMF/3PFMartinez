@@ -1,0 +1,69 @@
+<div class="container-fluid width-table">
+    <div class="row">
+      <div class="col-4 align-self-center" >
+        <button mat-raised-button (click)="abrirAltas()" color="primary"> <mat-icon fontIcon="person_add"></mat-icon>  Añadir curso</button>
+      </div>
+      <div class="col-4"></div>
+      <mat-form-field class="col-4 mTop">
+        <mat-label>Filtro</mat-label>
+        <input
+          matInput
+          (keyup)="aplicarFiltros($event)"
+          placeholder="Nombre alumno"
+          #input
+        />
+      </mat-form-field>
+    </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let cursos">{{ cursos.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="materia">
+        <th mat-header-cell *matHeaderCellDef class="left-align">Materia</th>
+        <td mat-cell *matCellDef="let cursos" class="left-align">
+          {{ cursos.materia }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cupos">
+        <th mat-header-cell *matHeaderCellDef >Cupos</th>
+        <td mat-cell *matCellDef="let cursos" >
+          {{ cursos.cupos }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="grupos">
+        <th mat-header-cell *matHeaderCellDef>Grupos</th>
+        <td mat-cell *matCellDef="let cursos">
+          {{ cursos.grupos }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="tutor">
+        <th mat-header-cell *matHeaderCellDef>Tutor</th>
+        <td mat-cell *matCellDef="let cursos">{{ cursos.tutor }}</td>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef>Acción</th>
+        <td mat-cell
+        *matCellDef="let cursos"
+        >
+          <div class="row">
+            <button class="col" mat-icon-button color="accent" matTooltip="Editar curso: {{ cursos.materia }}" (click)="abrirEdicion(cursos)"><mat-icon>edit</mat-icon></button>
+            <button class="col" mat-icon-button color="warn" matTooltip="Eliminar curso: {{ cursos.materia }}" (click)="eliminarUsuario(cursos)"><mat-icon>remove</mat-icon></button>
+            <button class="col" mat-icon-button color="primary" matTooltip="Detalles curso: {{ cursos.materia }}" (click)="details(cursos.id)"><mat-icon>settings_account_box</mat-icon></button>
+          </div>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  

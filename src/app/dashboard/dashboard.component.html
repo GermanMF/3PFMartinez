@@ -1,0 +1,122 @@
+<mat-drawer-container class="sidenav-container" hasBackdrop="true" autosize>
+  <mat-drawer #drawer class="sidenav-size" mode="side">
+    <p>¡Bienvenido al portal de alumnos!</p>
+    <br />
+    <h3>
+      Logueado:
+      <b>{{
+        (authUser$ | async)?.nombre + " " + (authUser$ | async)?.apellido
+      }}</b>
+    </h3>
+    <h4>User</h4>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let linkProperty of linkProperties">
+        <button mat-flat-button routerLink="{{ linkProperty.route }}">
+          {{ "Lista de " + linkProperty.name }}
+        </button>
+      </mat-list-item>
+    </mat-list>
+
+    <ng-container *ngIf="(authUser$ | async)?.role === 'admin'">
+      <h4>Admin</h4>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let linkProperty of linkProperties">
+          <button
+            mat-flat-button
+            routerLink="{{ 'admin/' + linkProperty.route }}"
+          >
+            {{ linkProperty.name }}
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-flat-button
+          routerLink="admin/users">Usuarios</button>
+        </mat-list-item>
+      </mat-list>
+    </ng-container>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <mat-toolbar color="primary" class="toolbar-height">
+      <button
+        mat-icon-button
+        class="sidenav-icon"
+        aria-label="icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        <button mat-button routerLink="dashboard">Sistema de alumnos</button>
+      </span>
+      <a
+        mat-icon-button
+        href="https://github.com/GermanMF/APIRESTMartinez"
+        target="_blank"
+        class="sidenav-icon favorite-icon"
+        aria-label="icon-button with info icon"
+        matTooltip="Repositorio de este proyecto"
+      >
+        <mat-icon>info</mat-icon>
+      </a>
+      <ng-container [ngSwitch]="true">
+        <span *ngSwitchCase="getRoute().includes('alumnos')">Alumnos</span>
+        <span *ngSwitchCase="getRoute().includes('cursos')">Cursos</span>
+        <span *ngSwitchCase="getRoute().includes('inscripciones')"
+          >Inscripciones</span
+        >
+      </ng-container>
+      <span class="toolbar-spacer"></span>
+      <span
+        >{{ (authUser$ | async)?.nombre + " " + (authUser$ | async)?.apellido }}
+      </span>
+      <a
+        mat-icon-button
+        (click)="logout()"
+        class="sidenav-icon favorite-icon"
+        aria-label="icon-button with info icon"
+        matTooltip="Salir"
+      >
+        <mat-icon>logout</mat-icon>
+      </a>
+      <!-- <span>
+          <form
+            [formGroup]="authForm"
+            (ngSubmit)="onSubmit()"
+            id="authAlumno"
+          >
+            <mat-form-field class="margin-login">
+              <input
+                matInput
+                [formControl]="nombreAuthControl"
+                placeholder="Nombre"
+                #alumnoAutenticado
+              />
+              <mat-error *ngIf="nombreAuthControl.hasError('required')">
+                Campo requerido
+              </mat-error>
+              <mat-error *ngIf="nombreAuthControl.hasError('minlength')">
+                Se esperan al menos 3 caractéres
+              </mat-error>
+              <mat-error *ngIf="nombreAuthControl.hasError('maxlength')">
+                Se esperan 15 caractéres como máximo
+              </mat-error>
+            </mat-form-field>
+            <button
+              mat-flat-button
+              type="submit"
+              form="authAlumno"
+              color="basic"
+              [disabled]="!authForm.valid"
+              (click)="openSnackBar(alumnoAutenticado.value)"
+            >
+              Loguea
+            </button>
+          </form>
+        </span> -->
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,41 @@
+<h2 class="title-detalle" mat-dialog-title>
+  <button
+    mat-icon-button
+    matTooltip="Regresar a pantalla de inscripciones"
+    routerLink="/dashboard/inscripciones"
+  >
+    <mat-icon>keyboard_return</mat-icon>
+  </button>
+  Detalles de la inscripción: Materia - <b>{{ inscripcion?.materia }}</b>, Grupo - <b> {{ inscripcion?.grupo }}</b>
+</h2>
+<div class="form-container">
+  <form>
+    <div class="container form-content">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Materia </mat-label>
+            <input matInput disabled value="{{ inscripcion?.materia }}" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Grupo </mat-label>
+            <input matInput disabled value="{{ inscripcion?.grupo }}" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row subsequentRow ">
+        <div class="col"></div>
+        <div class="col alumnos-align">
+            <mat-list>
+                <mat-list-item *ngFor="let estudiantes of inscripcion?.estudiantes">
+                  {{ estudiantes }}
+                </mat-list-item>
+              </mat-list>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </form>
+</div>

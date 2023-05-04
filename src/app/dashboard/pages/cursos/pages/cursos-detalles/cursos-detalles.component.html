@@ -1,0 +1,49 @@
+<h2 class="title-detalle" mat-dialog-title>
+  <button
+    mat-icon-button
+    matTooltip="Regresar a pantalla de cursos"
+    routerLink="/dashboard/cursos"
+  >
+    <mat-icon>keyboard_return</mat-icon>
+  </button>
+  Detalles de la materia: <b>{{ curso?.materia }}</b>
+</h2>
+<div class="form-container position-absolute top-50 start-50 translate-middle">
+  <form>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Materia </mat-label>
+            <input matInput disabled value="{{ curso?.materia }}" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Tutor </mat-label>
+            <input matInput disabled value="{{ curso?.tutor }}" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row subsequentRow">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Cupos </mat-label>
+            <input type="number" matInput disabled value="{{ curso?.cupos }}" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Grupos </mat-label>
+            <input
+              type="number"
+              matInput
+              disabled
+              value="{{ curso?.grupos }}"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

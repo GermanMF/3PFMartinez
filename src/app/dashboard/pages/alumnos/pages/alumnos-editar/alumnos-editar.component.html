@@ -1,0 +1,159 @@
+<h2 mat-dialog-title>Editar nuevo alumno</h2>
+<mat-dialog-content>
+  <form [formGroup]="alumnosForm" (ngSubmit)="onSubmit()" id="alumnosEdit">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Nombre </mat-label>
+            <input
+              matInput
+              [formControl]="nombreControl"
+              placeholder="Nombre del alumno"
+            />
+            <mat-error *ngIf="nombreControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="nombreControl.hasError('minlength')">
+              Se esperan al menos 3 caractéres
+            </mat-error>
+            <mat-error *ngIf="nombreControl.hasError('maxlength')">
+              Se esperan 15 caractéres como máximo
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Apellido </mat-label>
+            <input
+              [formControl]="apellidoControl"
+              matInput
+              placeholder="Primer apellido"
+            />
+            <mat-error *ngIf="apellidoControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="apellidoControl.hasError('minlength')">
+              Se esperan al menos 3 caractéres
+            </mat-error>
+            <mat-error *ngIf="apellidoControl.hasError('maxlength')">
+              Se esperan 15 caractéres como máximo
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row subsequentRow">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Matematicas </mat-label>
+            <input
+              type="number"
+              matInput
+              [formControl]="matematicasControl"
+              placeholder="5-10"
+            />
+            <mat-hint>Rango de 5 a 10</mat-hint>
+            <mat-error *ngIf="matematicasControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="matematicasControl.hasError('min')">
+              La calificación mínima es 5
+            </mat-error>
+            <mat-error *ngIf="matematicasControl.hasError('max')">
+              La calificación máxima es 10
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Español </mat-label>
+            <input type="number" matInput [formControl]="espanolControl" />
+            <mat-hint>Rango de 5 a 10</mat-hint>
+            <mat-error *ngIf="espanolControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="espanolControl.hasError('min')">
+              La calificación mínima es 5
+            </mat-error>
+            <mat-error *ngIf="espanolControl.hasError('max')">
+              La calificación máxima es 10
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row subsequentRow">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Ciencias Naturales </mat-label>
+            <input
+              type="number"
+              matInput
+              [formControl]="cienciasNaturalesControl"
+            />
+            <mat-hint>Rango de 5 a 10</mat-hint>
+            <mat-error *ngIf="cienciasNaturalesControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="cienciasNaturalesControl.hasError('min')">
+              La calificación mínima es 5
+            </mat-error>
+            <mat-error *ngIf="cienciasNaturalesControl.hasError('max')">
+              La calificación máxima es 10
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label> Civismo </mat-label>
+            <input
+              type="number"
+              matInput
+              [formControl]="civismoControl"
+              placeholder="5 - 10"
+            />
+            <mat-hint>Rango de 5 a 10</mat-hint>
+            <mat-error *ngIf="civismoControl.hasError('required')">
+              Campo requerido
+            </mat-error>
+            <mat-error *ngIf="civismoControl.hasError('min')">
+              La calificación mínima es 5
+            </mat-error>
+            <mat-error *ngIf="civismoControl.hasError('max')">
+              La calificación máxima es 10
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="container subsequentRow">
+        <label>Toma de clases:</label>
+        <mat-radio-group
+          [formControl]="locacionControl"
+          class="row"
+          color="primary"
+        >
+          <div class="col-6">
+            <mat-radio-button value="true">Remoto</mat-radio-button>
+          </div>
+          <div class="col-6">
+            <mat-radio-button value="false">Presencial</mat-radio-button>
+          </div>
+        </mat-radio-group>
+        <mat-error *ngIf="locacionControl.hasError('required')">
+          Seleccion algúna opción
+        </mat-error>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    type="submit"
+    form="alumnosEdit"
+    [disabled]="!alumnosForm.valid"
+    [mat-dialog-close]="true"
+  >
+    Editar alumno
+  </button>
+</mat-dialog-actions>

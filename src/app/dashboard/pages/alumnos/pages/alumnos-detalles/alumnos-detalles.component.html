@@ -1,0 +1,88 @@
+<h2 class="title-detalle" mat-dialog-title><button mat-icon-button  matTooltip="Regresar a pantalla de alumnos" routerLink="/dashboard/alumnos" ><mat-icon>keyboard_return</mat-icon></button> 
+    Detalles del alumno: <b>{{ alumno?.firstName }} {{ alumno?.lastName }}</b></h2>
+  <div class="form-container position-absolute top-50 start-50 translate-middle ">
+      <form>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Nombre </mat-label>
+                <input
+                  matInput
+                  disabled
+                  value="{{alumno?.firstName}}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Apellido </mat-label>
+                <input
+                  matInput
+                  disabled
+                  value="{{alumno?.lastName}}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row subsequentRow">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Matematicas </mat-label>
+                <input
+                  type="number"
+                  matInput
+                  disabled
+                  value="{{alumno?.matematicas}}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Español </mat-label>
+                <input type="number" matInput disabled
+                value="{{alumno?.espanol}}" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row subsequentRow">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Ciencias Naturales </mat-label>
+                <input
+                  type="number"
+                  matInput
+                  disabled
+                  value="{{alumno?.cienciasNaturales}}"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> Civismo </mat-label>
+                <input
+                  type="number"
+                  matInput
+                  disabled
+                  value="{{alumno?.civismo}}"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="container subsequentRow">
+            <label>Toma de clases:</label>
+            <mat-radio-group
+              class="row"
+              color="primary"
+            >
+              <div class="col-6">
+                <mat-radio-button value="true" checked="{{ alumno?.online?'true':'false' }}" disabled>Remoto</mat-radio-button>
+              </div>
+              <div class="col-6">
+                <mat-radio-button value="false"  checked="{{ alumno?.online?'false':'true' }}" disabled>Presencial</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </form>
+  </div>

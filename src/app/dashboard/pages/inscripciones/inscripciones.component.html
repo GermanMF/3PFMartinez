@@ -1,0 +1,105 @@
+<div class="container-fluid width-table">
+  <div class="row">
+    <div class="col-4 align-self-center">
+      <button mat-raised-button (click)="abrirAltas()" color="primary">
+        <mat-icon fontIcon="person_add"></mat-icon> Añadir inscripcion
+      </button>
+    </div>
+    <div class="col-4"></div>
+    <mat-form-field class="col-4 mTop">
+      <mat-label>Filtro</mat-label>
+      <input
+        matInput
+        (keyup)="aplicarFiltros($event)"
+        placeholder="Nombre alumno"
+        #input
+      />
+    </mat-form-field>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let inscripciones">{{ inscripciones.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="materia">
+      <th mat-header-cell *matHeaderCellDef class="left-align">Materia</th>
+      <td mat-cell *matCellDef="let inscripciones" class="left-align">
+        {{ inscripciones.materia }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estudiantes">
+      <th mat-header-cell *matHeaderCellDef>Estudiantes</th>
+      <td mat-cell *matCellDef="let inscripciones" class="left-align">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Click para mostrar de estudiantes</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item *ngFor="let estudiantes of inscripciones.estudiantes">
+                      {{ estudiantes }}
+                    </mat-list-item>
+                  </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grupo">
+      <th mat-header-cell *matHeaderCellDef>Grupo</th>
+      <td mat-cell *matCellDef="let inscripciones">
+        {{ inscripciones.grupo }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>Fecha de inicio</th>
+      <td mat-cell *matCellDef="let inscripciones">
+        {{ inscripciones.startDate | date : "mediumDate" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion">
+      <th mat-header-cell *matHeaderCellDef>Acción</th>
+      <td mat-cell *matCellDef="let inscripciones">
+        <div class="row">
+          <button
+            class="col"
+            mat-icon-button
+            color="accent"
+            matTooltip="Editar curso: {{ inscripciones.id }}"
+            (click)="abrirEdicion(inscripciones)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            class="col"
+            mat-icon-button
+            color="warn"
+            matTooltip="Eliminar curso: {{ inscripciones.id }}"
+            (click)="eliminarUsuario(inscripciones)"
+          >
+            <mat-icon>remove</mat-icon>
+          </button>
+          <button
+            class="col"
+            mat-icon-button
+            color="primary"
+            matTooltip="Detalles curso: {{ inscripciones.id }}"
+            (click)="details(inscripciones.id)"
+          >
+            <mat-icon>settings_account_box</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
