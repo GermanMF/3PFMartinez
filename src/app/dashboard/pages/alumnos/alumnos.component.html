@@ -82,8 +82,10 @@
         *matCellDef="let alumnos"
         >
           <div class="row">
-            <button class="col" mat-icon-button color="accent" matTooltip="Editar alumno: {{ alumnos | nombreCompleto}}" (click)="abrirEdicion(alumnos)"><mat-icon>edit</mat-icon></button>
-            <button class="col" mat-icon-button color="warn" matTooltip="Eliminar alumno: {{ alumnos | nombreCompleto }}" (click)="eliminarUsuario(alumnos)"><mat-icon>remove</mat-icon></button>
+            <ng-container *ngIf="(authUser$ | async)?.role === 'admin'">
+              <button class="col" mat-icon-button color="accent" matTooltip="Editar alumno: {{ alumnos | nombreCompleto}}" (click)="abrirEdicion(alumnos)"><mat-icon>edit</mat-icon></button>
+              <button class="col" mat-icon-button color="warn" matTooltip="Eliminar alumno: {{ alumnos | nombreCompleto }}" (click)="eliminarUsuario(alumnos)"><mat-icon>remove</mat-icon></button>
+            </ng-container>
             <button class="col" mat-icon-button color="primary" matTooltip="Detalles alumno: {{ alumnos | nombreCompleto }}" (click)="details(alumnos.id)"><mat-icon>settings_account_box</mat-icon></button>
           </div>
         </td>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Inscripcion } from './models';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,6 +8,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { InscripcionesService } from './services/inscripciones.service';
 import { InscripcionesAltasComponent } from './pages/inscripciones-altas/inscripciones-altas.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
+import { Usuario } from 'src/app/core/models';
+import { Observable, Subject } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 const milisecondsHour = 3600000;
 
@@ -16,7 +19,10 @@ const milisecondsHour = 3600000;
   templateUrl: './inscripciones.component.html',
   styleUrls: ['./inscripciones.component.scss']
 })
-export class InscripcionesComponent {
+export class InscripcionesComponent implements OnDestroy{
+
+  destroyed$ = new Subject<void>();
+  authUser$: Observable<Usuario | null>;
 
   randomHours = function getRandomInt(top: number) {
     return Math.floor(Math.random() * top);
@@ -32,7 +38,9 @@ export class InscripcionesComponent {
   constructor(private matDialog: MatDialog,
     private inscripcionesService: InscripcionesService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,) {
+    private router: Router,
+    private authService: AuthService) {
+      this.authUser$ = this.authService.getAuthUser();
     this.inscripcionesService.getInscripciones().subscribe(inscripciones => {
       this.dataSource.data = inscripciones;
     })
@@ -108,5 +116,10 @@ export class InscripcionesComponent {
     'startDate',
     'accion'
   ];
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 
 }

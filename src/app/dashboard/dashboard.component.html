@@ -79,41 +79,6 @@
       >
         <mat-icon>logout</mat-icon>
       </a>
-      <!-- <span>
-          <form
-            [formGroup]="authForm"
-            (ngSubmit)="onSubmit()"
-            id="authAlumno"
-          >
-            <mat-form-field class="margin-login">
-              <input
-                matInput
-                [formControl]="nombreAuthControl"
-                placeholder="Nombre"
-                #alumnoAutenticado
-              />
-              <mat-error *ngIf="nombreAuthControl.hasError('required')">
-                Campo requerido
-              </mat-error>
-              <mat-error *ngIf="nombreAuthControl.hasError('minlength')">
-                Se esperan al menos 3 caractéres
-              </mat-error>
-              <mat-error *ngIf="nombreAuthControl.hasError('maxlength')">
-                Se esperan 15 caractéres como máximo
-              </mat-error>
-            </mat-form-field>
-            <button
-              mat-flat-button
-              type="submit"
-              form="authAlumno"
-              color="basic"
-              [disabled]="!authForm.valid"
-              (click)="openSnackBar(alumnoAutenticado.value)"
-            >
-              Loguea
-            </button>
-          </form>
-        </span> -->
     </mat-toolbar>
     <main>
       <router-outlet></router-outlet>

@@ -9,7 +9,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../shared/shared.module';
-import { AuthService } from './services/auth.service';
 import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
@@ -34,7 +33,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    // RegisterComponent,
     AuthComponent,
   ],
   imports: [

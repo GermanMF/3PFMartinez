@@ -2,9 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { AuthService } from '../auth/services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Alumno } from './pages/alumnos/models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Usuario } from '../core/models';
 
 export interface linkProperty {

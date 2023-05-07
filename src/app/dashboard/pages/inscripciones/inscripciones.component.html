@@ -67,24 +67,26 @@
       <th mat-header-cell *matHeaderCellDef>Acción</th>
       <td mat-cell *matCellDef="let inscripciones">
         <div class="row">
-          <button
-            class="col"
-            mat-icon-button
-            color="accent"
-            matTooltip="Editar curso: {{ inscripciones.id }}"
-            (click)="abrirEdicion(inscripciones)"
-          >
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button
-            class="col"
-            mat-icon-button
-            color="warn"
-            matTooltip="Eliminar curso: {{ inscripciones.id }}"
-            (click)="eliminarUsuario(inscripciones)"
-          >
-            <mat-icon>remove</mat-icon>
-          </button>
+          <ng-container *ngIf="(authUser$ | async)?.role === 'admin'">
+            <button
+              class="col"
+              mat-icon-button
+              color="accent"
+              matTooltip="Editar curso: {{ inscripciones.id }}"
+              (click)="abrirEdicion(inscripciones)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              class="col"
+              mat-icon-button
+              color="warn"
+              matTooltip="Eliminar curso: {{ inscripciones.id }}"
+              (click)="eliminarUsuario(inscripciones)"
+            >
+              <mat-icon>remove</mat-icon>
+            </button>
+          </ng-container>
           <button
             class="col"
             mat-icon-button

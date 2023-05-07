@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Curso } from './models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,6 +6,9 @@ import { CursosService } from './services/cursos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursosAltasComponent } from './pages/cursos-altas/cursos-altas.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { Usuario } from 'src/app/core/models';
+import { Observable, Subject } from 'rxjs';
 
 
 
@@ -14,8 +17,11 @@ import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.compo
   templateUrl: './cursos.component.html',
   styleUrls: ['./cursos.component.scss']
 })
-export class CursosComponent {
+export class CursosComponent implements OnDestroy {
   dataSource = new MatTableDataSource<Curso>();
+
+  destroyed$ = new Subject<void>();
+  authUser$: Observable<Usuario | null>;
 
   aplicarFiltros(ev: Event): void {
     const inputValue = (ev.target as HTMLInputElement)?.value;
@@ -25,7 +31,9 @@ export class CursosComponent {
   constructor(private matDialog: MatDialog,
     private cursosService: CursosService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,) {
+    private router: Router,
+    private authService: AuthService) {
+    this.authUser$ = this.authService.getAuthUser();
     this.cursosService.getCursos().subscribe(cursos => {
       this.dataSource.data = cursos;
     })
@@ -100,5 +108,10 @@ export class CursosComponent {
     'tutor',
     'accion'
   ];
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 
 }

@@ -5,7 +5,6 @@ import {
   map,
   catchError,
   throwError,
-  of,
 } from 'rxjs';
 import { Usuario } from 'src/app/core/models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -21,10 +20,6 @@ export interface LoginFormValue {
   providedIn: 'root',
 })
 export class AuthService {
-  // authAlumno$: Observable<Usuario>;
-  // authForm: FormGroup = new FormGroup({});
-
-  // private usuarioLogueado: string = ''
   private authUser$ = new BehaviorSubject<Usuario | any>(null);
 
   constructor(private router: Router, private httpClient: HttpClient) {
@@ -37,12 +32,6 @@ export class AuthService {
           },
         })
     );
-    console.log(localStorage)
-    console.log(localStorage.getItem('role'));
-    // this.authForm = new FormGroup({
-    //   alumnoLogueado: this.nombreAuthControl,
-    // });
-    // this.authAlumno$ = this.authService.getAuthAlumno();
   }
 
   getAuthUser(): Observable<Usuario | null> {
@@ -69,25 +58,6 @@ export class AuthService {
         },
       });
   }
-
-  // verifyRole(): Observable<String> {
-  //   const role = localStorage.getItem('role');
-  //   console.log(role);
-  //   return this.httpClient
-  //     .get<Usuario[]>(`${environment.apiBaseUrl}/usuarios?role=${role}`,{
-  //       headers: new HttpHeaders({
-  //         Role: role || '',
-  //       }),
-  //     }).pipe(
-  //       map((users) => {
-  //         const userRole = users[0];
-  //         if (userRole) {
-  //           localStorage.setItem('role', userRole.role);
-  //         }
-  //         return userRole.role;
-  //       })
-  //     )
-  // }
 
   logout(): void {
     localStorage.removeItem('token');
@@ -119,9 +89,4 @@ export class AuthService {
         })
       );
   }
-
-  // enviarAdrawer(nombre: string): void {
-  //   this.usuarioLogueado = nombre;
-  //   this.authUser$.next(this.usuarioLogueado);
-  // }
 }

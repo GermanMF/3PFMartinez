@@ -7,28 +7,37 @@ import { AlumnosAltasComponent } from './pages/alumnos-altas/alumnos-altas.compo
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
 import { AlumnosEditarComponent } from './pages/alumnos-editar/alumnos-editar.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { Usuario } from 'src/app/core/models';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
-  styleUrls: ['./alumnos.component.scss']
+  styleUrls: ['./alumnos.component.scss'],
 })
 export class AlumnosComponent {
   dataSource = new MatTableDataSource<Alumno>();
 
+  destroyed$ = new Subject<void>();
+  authUser$: Observable<Usuario | null>;
 
   aplicarFiltros(ev: Event): void {
     const inputValue = (ev.target as HTMLInputElement)?.value;
     this.dataSource.filter = inputValue?.trim()?.toLowerCase();
   }
 
-  constructor(private matDialog: MatDialog,
+  constructor(
+    private matDialog: MatDialog,
     private alumnosService: AlumnosService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,) {
-    this.alumnosService.getAlumnos().subscribe(alumnos => {
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.authUser$ = this.authService.getAuthUser();
+    this.alumnosService.getAlumnos().subscribe((alumnos) => {
       this.dataSource.data = alumnos;
-    })
+    });
   }
 
   abrirAltas(): void {
@@ -103,4 +112,8 @@ export class AlumnosComponent {
     'accion',
   ];
 
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 }
