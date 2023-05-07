@@ -5,11 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { AlumnosService } from './services/alumnos.service';
 import { AlumnosAltasComponent } from './pages/alumnos-altas/alumnos-altas.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
-import { AlumnosEditarComponent } from './pages/alumnos-editar/alumnos-editar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { Usuario } from 'src/app/core/models';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 
 @Component({
   selector: 'app-alumnos',
@@ -32,10 +31,10 @@ export class AlumnosComponent {
     private alumnosService: AlumnosService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.authUser$ = this.authService.getAuthUser();
-    this.alumnosService.getAlumnos().subscribe((alumnos) => {
+    this.alumnosService.getAlumnos().subscribe(alumnos => {
       this.dataSource.data = alumnos;
     });
   }
@@ -48,7 +47,7 @@ export class AlumnosComponent {
   }
 
   abrirEdicion(alumno: Alumno) {
-    const dialog = this.matDialog.open(AlumnosEditarComponent, {
+    const dialog = this.matDialog.open(AlumnosAltasComponent, {
       data: alumno,
     });
     dialog.disableClose = true;
@@ -104,10 +103,11 @@ export class AlumnosComponent {
     'firstName',
     'lastName',
     'update',
-    'matematicas',
-    'espanol',
-    'cienciasNaturales',
-    'civismo',
+    'materias',
+    // 'matematicas',
+    // 'espanol',
+    // 'cienciasNaturales',
+    // 'civismo',
     'online',
     'accion',
   ];

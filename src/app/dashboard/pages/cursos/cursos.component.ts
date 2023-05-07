@@ -6,7 +6,7 @@ import { CursosService } from './services/cursos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursosAltasComponent } from './pages/cursos-altas/cursos-altas.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { Usuario } from 'src/app/core/models';
 import { Observable, Subject } from 'rxjs';
 

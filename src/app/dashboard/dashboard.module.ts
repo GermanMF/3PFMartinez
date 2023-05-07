@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './pages/main/main.component';
-import { AuthService } from '../auth/services/auth.service';
+import { AuthService } from '../core/auth/services/auth.service';
 
 const routes: Routes = [
   {

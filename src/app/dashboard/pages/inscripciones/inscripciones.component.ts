@@ -10,7 +10,7 @@ import { InscripcionesAltasComponent } from './pages/inscripciones-altas/inscrip
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
 import { Usuario } from 'src/app/core/models';
 import { Observable, Subject } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 
 const milisecondsHour = 3600000;
 

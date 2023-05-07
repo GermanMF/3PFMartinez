@@ -8,32 +8,22 @@
         (authUser$ | async)?.nombre + " " + (authUser$ | async)?.apellido
       }}</b>
     </h3>
-    <h4>User</h4>
+    <ng-container [ngSwitch]="(authUser$ | async)?.role">
+      <h4 *ngSwitchCase="'admin'">Admin</h4>
+      <h4 *ngSwitchDefault>User</h4>
+    </ng-container>
+
     <mat-list role="list">
       <mat-list-item *ngFor="let linkProperty of linkProperties">
         <button mat-flat-button routerLink="{{ linkProperty.route }}">
           {{ "Lista de " + linkProperty.name }}
         </button>
       </mat-list-item>
+      <mat-list-item *ngIf="(authUser$ | async)?.role === 'admin'">
+        <button mat-flat-button
+        routerLink="admin/users">Usuarios</button>
+      </mat-list-item>
     </mat-list>
-
-    <ng-container *ngIf="(authUser$ | async)?.role === 'admin'">
-      <h4>Admin</h4>
-      <mat-list role="list">
-        <mat-list-item *ngFor="let linkProperty of linkProperties">
-          <button
-            mat-flat-button
-            routerLink="{{ 'admin/' + linkProperty.route }}"
-          >
-            {{ linkProperty.name }}
-          </button>
-        </mat-list-item>
-        <mat-list-item>
-          <button mat-flat-button
-          routerLink="admin/users">Usuarios</button>
-        </mat-list-item>
-      </mat-list>
-    </ng-container>
   </mat-drawer>
 
   <div class="sidenav-content">

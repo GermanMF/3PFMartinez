@@ -11,7 +11,7 @@
               [formControl]="materiaControl"
               placeholder="Nombre de la materia"
             />
-            <mat-error *ngFor="let error of cuposControl.errors | keyvalue">
+            <mat-error *ngFor="let error of materiaControl.errors | keyvalue">
                
               {{
               error | controlErrorMessages
@@ -73,7 +73,7 @@
               placeholder="1 -5"
             />
             <mat-hint>Rango de 1 a 5</mat-hint>
-            <mat-error *ngFor="let error of cuposControl.errors | keyvalue">
+            <mat-error *ngFor="let error of gruposControl.errors | keyvalue">
                
               {{
               error | controlErrorMessages : "Grupos"

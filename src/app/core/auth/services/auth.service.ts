@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Observable,
-  BehaviorSubject,
-  map,
-  catchError,
-  throwError,
-} from 'rxjs';
+import { Observable, BehaviorSubject, map, catchError, throwError } from 'rxjs';
 import { Usuario } from 'src/app/core/models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';

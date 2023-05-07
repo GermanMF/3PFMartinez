@@ -4,10 +4,7 @@ export class Alumno {
       public firstName: string = "",
       public lastName: string = "",
       public update: Date,
-      public matematicas: number = 0,
-      public espanol: number = 0,
-      public cienciasNaturales: number = 0,
-      public civismo: number = 0,
+      public materias: string[],
       public online: boolean = false,
     ) {}
   }

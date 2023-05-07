@@ -1,4 +1,6 @@
-<h2 class="title-detalle" mat-dialog-title><button mat-icon-button  matTooltip="Regresar a pantalla de alumnos" routerLink="/dashboard/alumnos" ><mat-icon>keyboard_return</mat-icon></button> 
+{{ alumno?.length }}
+
+<!-- <h2 class="title-detalle" mat-dialog-title><button mat-icon-button  matTooltip="Regresar a pantalla de alumnos" routerLink="/dashboard/alumnos" ><mat-icon>keyboard_return</mat-icon></button> 
     Detalles del alumno: <b>{{ alumno?.firstName }} {{ alumno?.lastName }}</b></h2>
   <div class="form-container position-absolute top-50 start-50 translate-middle ">
       <form>
@@ -26,47 +28,13 @@
             </div>
           </div>
           <div class="row subsequentRow">
-            <div class="col">
-              <mat-form-field appearance="outline">
-                <mat-label> Matematicas </mat-label>
-                <input
-                  type="number"
-                  matInput
-                  disabled
-                  value="{{alumno?.matematicas}}"
-                />
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="outline">
-                <mat-label> Español </mat-label>
-                <input type="number" matInput disabled
-                value="{{alumno?.espanol}}" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row subsequentRow">
-            <div class="col">
-              <mat-form-field appearance="outline">
-                <mat-label> Ciencias Naturales </mat-label>
-                <input
-                  type="number"
-                  matInput
-                  disabled
-                  value="{{alumno?.cienciasNaturales}}"
-                />
-              </mat-form-field>
-            </div>
-            <div class="col">
-              <mat-form-field appearance="outline">
-                <mat-label> Civismo </mat-label>
-                <input
-                  type="number"
-                  matInput
-                  disabled
-                  value="{{alumno?.civismo}}"
-                />
-              </mat-form-field>
+            <div class="col"></div>
+            <div class="col materias-align">
+              <mat-list>
+                <mat-list-item *ngFor="let materias of alumno?.materias">
+                  {{ materias }}
+                </mat-list-item>
+              </mat-list>
             </div>
           </div>
           <div class="container subsequentRow">
@@ -85,4 +53,4 @@
           </div>
         </div>
       </form>
-  </div>
+  </div> -->

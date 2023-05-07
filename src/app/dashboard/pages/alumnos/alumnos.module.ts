@@ -17,14 +17,15 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AlumnosAltasComponent } from './pages/alumnos-altas/alumnos-altas.component';
 import { AlumnosDetallesComponent } from './pages/alumnos-detalles/alumnos-detalles.component';
-import { AlumnosEditarComponent } from './pages/alumnos-editar/alumnos-editar.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     AlumnosAltasComponent,
     AlumnosComponent,
-    AlumnosEditarComponent,
     AlumnosDetallesComponent,
     DeleteDialogComponent
   ],
@@ -40,6 +41,9 @@ import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.compo
     MatFormFieldModule,
     MatDialogModule,
     MatRadioModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatListModule,
     SharedModule,
     RouterModule.forChild([
       {
