@@ -25,6 +25,7 @@
               placeholder="Primer apellido"
             />
             <mat-error *ngFor="let error of apellidoControl.errors | keyvalue">
+              <!-- {{ error.key }} -->
               {{ error | controlErrorMessages }}
             </mat-error>
           </mat-form-field>

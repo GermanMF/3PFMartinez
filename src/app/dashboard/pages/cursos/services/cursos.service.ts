@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Curso } from '../models';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 
 
 @Injectable({
@@ -8,46 +10,24 @@ import { BehaviorSubject, Observable, map } from 'rxjs';
 })
 export class CursosService {
 
-  private cursos$ = new BehaviorSubject<Curso[]>([
-    {
-      id: 1,
-      materia: 'Matemáticas',
-      cupos: 16,
-      grupos: 3,
-      tutor: 'Galilea Montijo'
-    },
-    {
-      id: 2,
-      materia: 'Español',
-      cupos: 20,
-      grupos: 2,
-      tutor: 'Changoleón Rodriguez'
-    },
-    {
-      id: 3,
-      materia: 'Civismo',
-      cupos: 10,
-      grupos: 1,
-      tutor: 'Cuauhtemoc Blanco'
-    },
-    {
-      id: 4,
-      materia: 'Ciencias Naturales',
-      cupos: 12,
-      grupos: 1,
-      tutor: 'Lilia Laureles'
-    },
-  ]);
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getCursos(): Observable<Curso[]> {
-    return this.cursos$.asObservable();
+    return this.httpClient
+    .get<Curso[]>(`${environment.apiBaseUrl}/cursos`)
+    .pipe(map((response) => response));
   }
 
   getCursoById(id: number): Observable<Curso | undefined> {
-    return this.cursos$
-      .asObservable()
-      .pipe(map((cursos) => cursos.find((alumno) => alumno.id === id)));
+    return this.httpClient
+    .get<Curso>(`${environment.apiBaseUrl}/cursos/${id}`)
+    .pipe(map((response) => response));
+  }
+
+  addCurso(curso: Curso): Observable<Curso> {
+    return this.httpClient.post<Curso>(
+      `${environment.apiBaseUrl}/cursos`,
+      curso
+    );
   }
 }

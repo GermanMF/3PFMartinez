@@ -9,8 +9,8 @@ import { Subject, takeUntil, tap, Observable } from 'rxjs';
   templateUrl: './alumnos-detalles.component.html',
   styleUrls: ['./alumnos-detalles.component.scss'],
 })
-export class AlumnosDetallesComponent implements OnDestroy, OnInit {
-  alumno :  Alumno[] | undefined;
+export class AlumnosDetallesComponent implements OnDestroy {
+  alumno :  Alumno | undefined;
 
   private destroyed$ = new Subject();
 
@@ -18,21 +18,14 @@ export class AlumnosDetallesComponent implements OnDestroy, OnInit {
     private activatedRoute: ActivatedRoute,
     private alumnosService: AlumnosService
   ) {
-
-      console.log(this.alumno)
-  }
-  ngOnInit(): void {
-    this.alumnosService
-    .getAlumnoById(parseInt(this.activatedRoute.snapshot.params['id']))
-    .pipe(
-    //   tap(alumno => console.log(alumno=this.alumno)))
-     takeUntil(this.destroyed$))
-    .subscribe((alumnos) => {
-      this.alumno = alumnos;
-      // console.log("Perro")
-      console.log(this.alumno);
-    });
-    // console.log('Waa' + this.alumnosService.getAlumnoById(6).subscribe(alumnos => {this.alumno = alumnos}));
+      this.alumnosService
+      .getAlumnoById(parseInt(this.activatedRoute.snapshot.params['id']))
+      .pipe(
+      //   tap(alumno => console.log(alumno=this.alumno)))
+       takeUntil(this.destroyed$))
+      .subscribe((alumnos) => {
+        this.alumno = alumnos;
+      });
   }
 
   ngOnDestroy(): void {

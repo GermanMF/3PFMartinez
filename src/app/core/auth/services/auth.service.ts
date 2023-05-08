@@ -17,7 +17,6 @@ export class AuthService {
   private authUser$ = new BehaviorSubject<Usuario | any>(null);
 
   constructor(private router: Router, private httpClient: HttpClient) {
-    console.log(
       this.httpClient
         .get<Usuario[]>(`${environment.apiBaseUrl}/usuarios`)
         .subscribe({
@@ -25,7 +24,6 @@ export class AuthService {
             localStorage.setItem('role', users[0].role);
           },
         })
-    );
   }
 
   getAuthUser(): Observable<Usuario | null> {

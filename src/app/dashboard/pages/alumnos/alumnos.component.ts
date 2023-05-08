@@ -31,10 +31,10 @@ export class AlumnosComponent {
     private alumnosService: AlumnosService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
+    private authService: AuthService
   ) {
     this.authUser$ = this.authService.getAuthUser();
-    this.alumnosService.getAlumnos().subscribe(alumnos => {
+    this.alumnosService.getAlumnos().subscribe((alumnos) => {
       this.dataSource.data = alumnos;
     });
   }
@@ -74,20 +74,27 @@ export class AlumnosComponent {
         ...alumno,
         id: this.dataSource.data[this.dataSource.data.length - 1].id + 1,
       };
+      this.alumnosService
+        .addAlumnos(alumno)
+        .subscribe((newAlumno) => newAlumno);
       this.dataSource.data.push(alumno);
       this.dataSource = new MatTableDataSource(this.dataSource.data);
     }
   }
 
   delete(alumno: Alumno): void {
+    this.alumnosService.deleteAlumnos(alumno.id).subscribe();
     this.dataSource.data.splice(this.dataSource.data.indexOf(alumno), 1);
     this.dataSource = new MatTableDataSource(this.dataSource.data);
   }
 
-  modify(alumno: Alumno) {
+  modify(alumno: Alumno) { 
     const index = this.dataSource.data.findIndex((alumnoI) => {
       return alumnoI.id === alumno.id;
     });
+    this.alumnosService
+        .updateAlumnos(alumno, alumno.id)
+        .subscribe((uAlumno) => alumno.id = uAlumno.id);
     this.dataSource.data[index] = alumno;
     this.dataSource = new MatTableDataSource(this.dataSource.data);
   }
@@ -104,10 +111,6 @@ export class AlumnosComponent {
     'lastName',
     'update',
     'materias',
-    // 'matematicas',
-    // 'espanol',
-    // 'cienciasNaturales',
-    // 'civismo',
     'online',
     'accion',
   ];

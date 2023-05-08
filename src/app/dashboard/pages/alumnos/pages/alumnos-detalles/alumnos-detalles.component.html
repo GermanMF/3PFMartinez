@@ -1,6 +1,4 @@
-{{ alumno?.length }}
-
-<!-- <h2 class="title-detalle" mat-dialog-title><button mat-icon-button  matTooltip="Regresar a pantalla de alumnos" routerLink="/dashboard/alumnos" ><mat-icon>keyboard_return</mat-icon></button> 
+<h2 class="title-detalle" mat-dialog-title><button mat-icon-button  matTooltip="Regresar a pantalla de alumnos" routerLink="/dashboard/alumnos" ><mat-icon>keyboard_return</mat-icon></button> 
     Detalles del alumno: <b>{{ alumno?.firstName }} {{ alumno?.lastName }}</b></h2>
   <div class="form-container position-absolute top-50 start-50 translate-middle ">
       <form>
@@ -28,10 +26,11 @@
             </div>
           </div>
           <div class="row subsequentRow">
-            <div class="col"></div>
-            <div class="col materias-align">
+            <p>Materias</p>
+            <!-- <div class="col"></div> -->
+            <div class="col-6 materias-align" *ngFor="let materias of alumno?.materias">
               <mat-list>
-                <mat-list-item *ngFor="let materias of alumno?.materias">
+                <mat-list-item>
                   {{ materias }}
                 </mat-list-item>
               </mat-list>
@@ -53,4 +52,4 @@
           </div>
         </div>
       </form>
-  </div> -->
+  </div>

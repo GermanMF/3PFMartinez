@@ -75,6 +75,7 @@ export class CursosComponent implements OnDestroy {
         ...curso,
         id: this.dataSource.data[this.dataSource.data.length - 1].id + 1,
       };
+      this.cursosService.addCurso(curso).subscribe(newCurso  => this.dataSource.data.push(newCurso));
       this.dataSource.data.push(curso);
       this.dataSource = new MatTableDataSource(this.dataSource.data);
     }

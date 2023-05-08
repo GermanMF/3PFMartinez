@@ -19,13 +19,43 @@
       "token": "asdshjadhsadjhkashd2e3"
     }
   ],
+  "materias": [
+    {
+      "id": 1,
+      "materia": "Matemáticas",
+      "cupos": 16,
+      "grupos": 3,
+      "tutor": "Galilea Montijo"
+    },
+    {
+      "id": 2,
+      "materia": "Español",
+      "cupos": 20,
+      "grupos": 2,
+      "tutor": "Changoleón Rodriguez"
+    },
+    {
+      "id": 3,
+      "materia": "Civismo",
+      "cupos": 10,
+      "grupos": 1,
+      "tutor": "Cuauhtemoc Blanco"
+    },
+    {
+      "id": 4,
+      "materia": "Ciencias Naturales",
+      "cupos": 12,
+      "grupos": 1,
+      "tutor": "Lilia Laureles"
+    }
+  ],
   "alumnos": [
     {
       "id": 1,
       "firstName": "Juan",
       "lastName": "Perez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": ["matematicas", "español", "cienciasNaturales","civismo"],
       "online": false
     },
     {
@@ -33,7 +63,12 @@
       "firstName": "Benito",
       "lastName": "Palurdo",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": true
     },
     {
@@ -41,7 +76,12 @@
       "firstName": "Constantino",
       "lastName": "Gomez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
     },
     {
@@ -49,7 +89,12 @@
       "firstName": "Querubinosa",
       "lastName": "Rodriguez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
     },
     {
@@ -57,7 +102,12 @@
       "firstName": "Alibaba",
       "lastName": "Zamudio",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": true
     },
     {
@@ -65,7 +115,12 @@
       "firstName": "Golondrino",
       "lastName": "Amaterasu",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
     },
     {
@@ -73,15 +128,25 @@
       "firstName": "Valentin",
       "lastName": "Elizalde",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
     },
     {
       "id": 8,
-      "firstName": "Cuauhtemoc",
+      "firstName": "Cuauhtemoca",
       "lastName": "Valdivia",
-      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "update": "2023-05-08T07:07:40.957Z",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
     },
     {
@@ -89,7 +154,12 @@
       "firstName": "Tom",
       "lastName": "Hanks",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": true
     },
     {
@@ -97,16 +167,13 @@
       "firstName": "Jonathan",
       "lastName": "Sardino",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Ciencias Naturales", "Civismo"],
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
       "online": false
-    },
-    {
-      "id": 22,
-      "firstName": "Joed",
-      "lastName": "Zamudio",
-      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["Matemáticas", "Español", "Civismo"],
-      "online": true
     }
   ]
 }
