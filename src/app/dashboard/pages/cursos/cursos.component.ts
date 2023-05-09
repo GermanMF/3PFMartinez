@@ -10,12 +10,10 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { Usuario } from 'src/app/core/models';
 import { Observable, Subject } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.scss']
+  styleUrls: ['./cursos.component.scss'],
 })
 export class CursosComponent implements OnDestroy {
   dataSource = new MatTableDataSource<Curso>();
@@ -28,15 +26,17 @@ export class CursosComponent implements OnDestroy {
     this.dataSource.filter = inputValue?.trim()?.toLowerCase();
   }
 
-  constructor(private matDialog: MatDialog,
+  constructor(
+    private matDialog: MatDialog,
     private cursosService: CursosService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService) {
+    private authService: AuthService
+  ) {
     this.authUser$ = this.authService.getAuthUser();
-    this.cursosService.getCursos().subscribe(cursos => {
+    this.cursosService.getCursos().subscribe((cursos) => {
       this.dataSource.data = cursos;
-    })
+    });
   }
 
   abrirAltas(): void {
@@ -47,10 +47,10 @@ export class CursosComponent implements OnDestroy {
     });
   }
 
-  abrirEdicion(curso:Curso){
+  abrirEdicion(curso: Curso) {
     const dialog = this.matDialog.open(CursosAltasComponent, {
-      data: curso
-    })
+      data: curso,
+    });
     dialog.disableClose = true;
     dialog.afterClosed().subscribe((response) => {
       this.onModify(response);
@@ -75,23 +75,24 @@ export class CursosComponent implements OnDestroy {
         ...curso,
         id: this.dataSource.data[this.dataSource.data.length - 1].id + 1,
       };
-      this.cursosService.addCurso(curso).subscribe(newCurso  => this.dataSource.data.push(newCurso));
+      this.cursosService.addCurso(curso).subscribe((newCurso) => newCurso);
       this.dataSource.data.push(curso);
       this.dataSource = new MatTableDataSource(this.dataSource.data);
     }
   }
 
   delete(curso: Curso): void {
+    this.cursosService.deleteCurso(curso.id).subscribe()
     this.dataSource.data.splice(this.dataSource.data.indexOf(curso), 1);
     this.dataSource = new MatTableDataSource(this.dataSource.data);
   }
 
-  onModify(curso: Curso){
-    const index = this.dataSource.data.findIndex(cu => {
-      return cu.id === curso.id
-    })
+  onModify(curso: Curso) {
+    const index = this.dataSource.data.findIndex((cu) => {
+      return cu.id === curso.id;
+    });
+    this.cursosService.updateCurso(curso, curso.id).subscribe((uMateria) => curso.id = uMateria.id);
     this.dataSource.data[index] = curso;
-    
     this.dataSource = new MatTableDataSource(this.dataSource.data);
   }
 
@@ -107,12 +108,11 @@ export class CursosComponent implements OnDestroy {
     'cupos',
     'grupos',
     'tutor',
-    'accion'
+    'accion',
   ];
 
   ngOnDestroy(): void {
     this.destroyed$.next();
     this.destroyed$.complete();
   }
-
 }

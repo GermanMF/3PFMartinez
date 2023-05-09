@@ -50,11 +50,11 @@
         <mat-accordion>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Materias inscritas</mat-panel-title>
+                    <mat-panel-title>Materias inscritas ({{ alumnos.materias.length }})</mat-panel-title>
                 </mat-expansion-panel-header>
                 <mat-list>
                     <mat-list-item *ngFor="let materias of alumnos.materias">
-                      {{ materias }}
+                      {{ materias.materia }}
                     </mat-list-item>
                   </mat-list>
             </mat-expansion-panel>

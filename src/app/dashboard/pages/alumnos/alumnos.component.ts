@@ -41,6 +41,7 @@ export class AlumnosComponent {
 
   abrirAltas(): void {
     const dialog = this.matDialog.open(AlumnosAltasComponent);
+    dialog.disableClose = true;
     dialog.afterClosed().subscribe((valor) => {
       this.add(valor);
     });

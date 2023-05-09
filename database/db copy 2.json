@@ -1,0 +1,179 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Germán",
+      "apellido": "Martínez",
+      "password": "1352",
+      "role": "admin",
+      "email": "gmartinez@mail.com",
+      "token": "2398u4hsdkjhfdsyr984ur"
+    },
+    {
+      "id": 2,
+      "nombre": "Jaime",
+      "apellido": "Rodríguez",
+      "password": "1111",
+      "role": "user",
+      "email": "jrodriguez@mail.com",
+      "token": "asdshjadhsadjhkashd2e3"
+    }
+  ],
+  "materias": [
+    {
+      "id": 1,
+      "materia": "Matemáticas",
+      "cupos": 16,
+      "grupos": 3,
+      "tutor": "Galilea Montijo"
+    },
+    {
+      "id": 2,
+      "materia": "Español",
+      "cupos": 20,
+      "grupos": 2,
+      "tutor": "Changoleón Rodriguez"
+    },
+    {
+      "id": 3,
+      "materia": "Civismo",
+      "cupos": 10,
+      "grupos": 1,
+      "tutor": "Cuauhtemoc Blanco"
+    },
+    {
+      "id": 4,
+      "materia": "Ciencias Naturales",
+      "cupos": 12,
+      "grupos": 1,
+      "tutor": "Lilia Laureles"
+    }
+  ],
+  "alumnos": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Perez",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": ["matematicas", "español", "cienciasNaturales","civismo"],
+      "online": false
+    },
+    {
+      "id": 2,
+      "firstName": "Benito",
+      "lastName": "Palurdo",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": true
+    },
+    {
+      "id": 3,
+      "firstName": "Constantino",
+      "lastName": "Gomez",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    },
+    {
+      "id": 4,
+      "firstName": "Querubinosa",
+      "lastName": "Rodriguez",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    },
+    {
+      "id": 5,
+      "firstName": "Alibaba",
+      "lastName": "Zamudio",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": true
+    },
+    {
+      "id": 6,
+      "firstName": "Golondrino",
+      "lastName": "Amaterasu",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    },
+    {
+      "id": 7,
+      "firstName": "Valentin",
+      "lastName": "Elizalde",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    },
+    {
+      "id": 8,
+      "firstName": "Cuauhtemoca",
+      "lastName": "Valdivia",
+      "update": "2023-05-08T07:07:40.957Z",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    },
+    {
+      "id": 9,
+      "firstName": "Tom",
+      "lastName": "Hanks",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": true
+    },
+    {
+      "id": 10,
+      "firstName": "Jonathan",
+      "lastName": "Sardino",
+      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "materias": [
+        "Matematicas",
+        "Español",
+        "Ciencias Naturales",
+        "Civismo"
+      ],
+      "online": false
+    }
+  ]
+}

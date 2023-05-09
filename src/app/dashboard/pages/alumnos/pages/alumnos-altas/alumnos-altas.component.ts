@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Curso } from '../../../cursos/models';
 import { Alumno } from '../../models/alumno.model';
 
 @Component({
@@ -12,12 +13,12 @@ export class AlumnosAltasComponent {
   alumnosForm: FormGroup = new FormGroup({});
   isNewRecord = !this.data;
 
-  materiasList: string[] = [
-    'Matemáticas',
-    'Español',
-    'Ciencias Naturales',
-    'Civismo',
-  ];
+  // materiasList: string[] = [
+  //   'Matemáticas',
+  //   'Español',
+  //   'Ciencias Naturales',
+  //   'Civismo',
+  // ];
 
   nombreControl = new FormControl(
     !this.isNewRecord ? this.data.firstName : '',
@@ -30,10 +31,10 @@ export class AlumnosAltasComponent {
   locacionControl = new FormControl(!this.isNewRecord ? (this.data.online ? 'true' : 'false'): '', [
     Validators.required,
   ]);
-  materiaControl = new FormControl(
-    !this.isNewRecord ? this.data.materias : '',
-    [Validators.required]
-  );
+  // materiaControl = new FormControl(
+  //   !this.isNewRecord ? this.data.materias : '',
+  //   [Validators.required]
+  // );
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Alumno,
@@ -42,7 +43,7 @@ export class AlumnosAltasComponent {
     this.alumnosForm = new FormGroup({
       firstName: this.nombreControl,
       lastName: this.apellidoControl,
-      materias: this.materiaControl,
+      // materias: Curso[],
       online: this.locacionControl,
     });
   }
@@ -54,7 +55,7 @@ export class AlumnosAltasComponent {
         id: this.data ? this.data.id : undefined,
         firstName: this.nombreControl.value,
         lastName: this.apellidoControl.value,
-        materias: this.materiaControl.value,
+        materias: !this.isNewRecord ? this.data.materias: [],
         online: this.locacionControl.value === 'true',
         update: new Date(),
         // espanol: 0,

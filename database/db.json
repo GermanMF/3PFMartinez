@@ -19,13 +19,13 @@
       "token": "asdshjadhsadjhkashd2e3"
     }
   ],
-  "materias": [
+  "cursos": [
     {
       "id": 1,
       "materia": "Matemáticas",
       "cupos": 16,
       "grupos": 3,
-      "tutor": "Galilea Montijo"
+      "tutor": "Galilea Montija"
     },
     {
       "id": 2,
@@ -55,7 +55,29 @@
       "firstName": "Juan",
       "lastName": "Perez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": ["matematicas", "español", "cienciasNaturales","civismo"],
+      "materias": [
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
+      ],
       "online": false
     },
     {
@@ -64,10 +86,27 @@
       "lastName": "Palurdo",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        }
       ],
       "online": true
     },
@@ -77,10 +116,27 @@
       "lastName": "Gomez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": false
     },
@@ -90,10 +146,27 @@
       "lastName": "Rodriguez",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": false
     },
@@ -101,12 +174,29 @@
       "id": 5,
       "firstName": "Alibaba",
       "lastName": "Zamudio",
-      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
+      "update": "2023-05-09T05:46:45.309Z",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": true
     },
@@ -116,10 +206,20 @@
       "lastName": "Amaterasu",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        }
       ],
       "online": false
     },
@@ -129,10 +229,27 @@
       "lastName": "Elizalde",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": false
     },
@@ -142,10 +259,27 @@
       "lastName": "Valdivia",
       "update": "2023-05-08T07:07:40.957Z",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": false
     },
@@ -155,25 +289,45 @@
       "lastName": "Hanks",
       "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
       "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
+        {
+          "id": 1,
+          "materia": "Matemáticas",
+          "cupos": 16,
+          "grupos": 3,
+          "tutor": "Galilea Montijo"
+        },
+        {
+          "id": 4,
+          "materia": "Ciencias Naturales",
+          "cupos": 12,
+          "grupos": 1,
+          "tutor": "Lilia Laureles"
+        },
+        {
+          "id": 3,
+          "materia": "Civismo",
+          "cupos": 10,
+          "grupos": 1,
+          "tutor": "Cuauhtemoc Blanco"
+        }
       ],
       "online": true
     },
     {
       "id": 10,
-      "firstName": "Jonathan",
-      "lastName": "Sardino",
-      "update": "Sat May 06 2023 19:37:00 GMT-0600 (Central Standard Time)",
-      "materias": [
-        "Matematicas",
-        "Español",
-        "Ciencias Naturales",
-        "Civismo"
-      ],
-      "online": false
+      "firstName": "Alsd",
+      "lastName": "lasdk",
+      "materias": [],
+      "online": false,
+      "update": "2023-05-09T05:35:46.213Z"
+    },
+    {
+      "id": 11,
+      "firstName": "aaaaaaaaaaa",
+      "lastName": "qweeqqaa",
+      "materias": [],
+      "online": false,
+      "update": "2023-05-09T05:48:42.341Z"
     }
   ]
 }

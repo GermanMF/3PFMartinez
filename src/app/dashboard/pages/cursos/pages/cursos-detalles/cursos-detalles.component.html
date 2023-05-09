@@ -8,7 +8,7 @@
   </button>
   Detalles de la materia: <b>{{ curso?.materia }}</b>
 </h2>
-<div class="form-container position-absolute top-50 start-50 translate-middle">
+<div class="form-container">
   <form>
     <div class="container">
       <div class="row">
@@ -44,6 +44,31 @@
           </mat-form-field>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <p>Alumnos Inscritos</p>
+          <div
+          class="col-6 alumnos-align"
+          *ngFor="let alumno of alumnosInscritos(curso?.materia!)"
+        >
+          <mat-list>
+            <mat-list-item>
+              <div class="row ">
+                <div class="col-6 materia-row-align">{{ alumno | nombreCompleto }}</div>
+                <div class="col-6">
+                  <button
+                  mat-icon-button
+                  color="warn"
+                  matTooltip="Desinscribir alumno: {{ alumno | nombreCompleto }}"
+                  (click)="deleteAlumno(alumno!, curso?.id!)"
+                              >
+                  <mat-icon>remove</mat-icon>
+                              </button>
+                </div>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        </div>
+      </div>
   </form>
 </div>

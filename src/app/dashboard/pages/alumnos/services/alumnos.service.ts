@@ -20,7 +20,6 @@ export class AlumnosService {
     return this.httpClient
       .get<Alumno[]>(`${environment.apiBaseUrl}/alumnos`)
       .pipe(map((response) => response));
-    // return this.alumnos$.asObservable();
   }
 
   getAlumnoById(id: number): Observable<Alumno | undefined> {
@@ -43,4 +42,9 @@ export class AlumnosService {
   deleteAlumnos(id: number): Observable<Alumno> {
     return this.httpClient.delete<Alumno>(`${environment.apiBaseUrl}/alumnos/${id}`)
   }
+
+  // updateMateria(idAlumno: number, idMateria: number): String {//Observable<Alumno> {
+  //   return 
+  //   // return this.httpClient.delete<Alumno>(`${environment.apiBaseUrl}/materia
+  // }
 }

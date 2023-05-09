@@ -30,4 +30,11 @@ export class CursosService {
       curso
     );
   }
+  updateCurso(curso: Curso, id:number): Observable<Curso> {
+    return this.httpClient.put<Curso>(`${environment.apiBaseUrl}/cursos/${id}`,curso)
+  }
+
+  deleteCurso(id: number): Observable<Curso> {
+    return this.httpClient.delete<Curso>(`${environment.apiBaseUrl}/cursos/${id}`)
+  }
 }

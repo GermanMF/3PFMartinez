@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CursosAltasComponent } from './pages/cursos-altas/cursos-altas.component';
 import { CursosDetallesComponent } from './pages/cursos-detalles/cursos-detalles.component';
 import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.component';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DeleteDialogComponent } from './pages/delete-dialog/delete-dialog.compo
     MatFormFieldModule,
     MatDialogModule,
     MatRadioModule,
+    MatListModule,
     SharedModule,
     RouterModule.forChild([{
       path: '',
