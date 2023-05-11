@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Alumno } from '../models';
 import { BehaviorSubject, Observable, map, tap, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environment/environment.prod';
 
 const milisecondsHour = 3600000;
 
@@ -21,6 +21,8 @@ export class AlumnosService {
       .get<Alumno[]>(`${environment.apiBaseUrl}/alumnos`)
       .pipe(map((response) => response));
   }
+
+  
 
   getAlumnoById(id: number): Observable<Alumno | undefined> {
     return this.httpClient

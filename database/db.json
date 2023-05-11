@@ -13,10 +13,19 @@
       "id": 2,
       "nombre": "Jaime",
       "apellido": "Rodríguez",
-      "password": "1111",
+      "password": "asd",
       "role": "user",
       "email": "jrodriguez@mail.com",
-      "token": "asdshjadhsadjhkashd2e3"
+      "token": ""
+    },
+    {
+      "id": 3,
+      "nombre": "asd",
+      "apellido": "asd",
+      "role": "admin",
+      "email": "asd@asd",
+      "password": "asd",
+      "token": ""
     }
   ],
   "cursos": [

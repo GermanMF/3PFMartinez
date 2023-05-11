@@ -32,13 +32,6 @@ export class CursosDetallesComponent {
   }
 
   alumnosInscritos(materia: string): Alumno[] {
-    // this.alumnos?.filter(alumno => alumno.materias[0].materia === materia)
-    // this.alumnos?.filter(alumno => alumno.materias.forEach(materia => materia))
-    // console.log(this.alumnos)
-    // console.log(materia)
-    // console.log(this.alumnos?.forEach(alumno => alumno.materias))
-    // console.log(this.alumnos?.forEach(alumno => alumno.materias.filter(materiaS => materiaS.materia === materia)))
-    // let totalAlumnos = Alumno[]
     let totalAlumnos: Alumno[] = []
     this.alumnos?.forEach((alumnoF) => {
       alumnoF.materias.forEach((alumnoE) => {
@@ -47,17 +40,7 @@ export class CursosDetallesComponent {
         }
       });
     });
-    // console.log(totalAlumnos)
     return totalAlumnos;
-
-    // this.alumnos?.forEach(alumno => {
-    //  alumno.materias.filter(materiAl => {
-    //   materiAl.materia===materia
-    //  })
-    // });
-    // this.alumnos.forEach(element => {
-
-    // });
   }
 
   deleteAlumno(alumno: Alumno, materia: number){

@@ -1,0 +1,46 @@
+<h2 class="title-detalle" mat-dialog-title>
+    <button
+      mat-icon-button
+      matTooltip="Regresar a pantalla de usuarios"
+      routerLink="/dashboard/usuarios"
+    >
+      <mat-icon>keyboard_return</mat-icon>
+    </button>
+    Detalles del usuario: <b>{{ usuario?.nombre }} {{ usuario?.apellido }}</b>
+  </h2>
+  <div class="form-container position-absolute top-50 start-50 translate-middle">
+    <form>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label> Nombre </mat-label>
+              <input matInput disabled value="{{ usuario?.nombre }}" />
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label> Apellido </mat-label>
+              <input matInput disabled value="{{ usuario?.apellido }}" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row subsequentRow">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label> email </mat-label>
+                <input matInput disabled value="{{ usuario?.email }}" />
+              </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label> Acceso </mat-label>
+                  <input matInput disabled value="{{ usuario?.role }}" />
+                </mat-form-field>
+              </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  

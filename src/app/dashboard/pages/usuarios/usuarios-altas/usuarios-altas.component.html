@@ -1,0 +1,95 @@
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-title>Registrar usuario</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="usuariosAltas">
+        <div class="row">
+          <div class="col-6">
+            <p class="field">
+              <mat-form-field class="w-full">
+                <mat-label> Nombre </mat-label>
+                <input [formControl]="nombreControl" type="text" matInput />
+                <mat-error *ngFor="let error of nombreControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="col-6">
+            <p class="field">
+              <mat-form-field class="w-full">
+                <mat-label> Apellido </mat-label>
+                <input [formControl]="apellidoControl" type="text" matInput />
+                <mat-error *ngFor="let error of apellidoControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p class="field">
+              <mat-form-field class="w-full">
+                <mat-label> eMail </mat-label>
+                <input [formControl]="emailControl" type="email" matInput />
+                <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="col-6">
+              <mat-form-field>
+                <mat-label> Rol </mat-label>
+                <mat-select [formControl]="roleControl">
+                    <mat-option *ngFor="let rol of role" [value]="rol">
+                      {{rol}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p class="field">
+              <mat-form-field class="w-full">
+                <mat-label> Password </mat-label>
+                <input [formControl]="passwordControl" type="password" matInput />
+                <mat-error *ngFor="let error of passwordControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="col-6">
+            <p class="field">
+              <mat-form-field class="w-full">
+                <mat-label> Confirmar Password </mat-label>
+                <input [formControl]="confirmPasswordControl" type="password" matInput />
+                <mat-error *ngFor="let error of confirmPasswordControl.errors | keyvalue">
+                  {{ error | controlErrorMessages }}
+                </mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    type="submit"
+    form="usuariosAltas"
+    [disabled]="!registerForm.valid"
+    [mat-dialog-close]="true"
+  >
+    Enviar
+  </button>
+</mat-dialog-actions>

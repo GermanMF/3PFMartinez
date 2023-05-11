@@ -25,7 +25,6 @@ export class AlumnosDetallesComponent implements OnDestroy {
       )
       .subscribe((alumnos) => {
         this.alumno = alumnos;
-        console.log(this.alumno);
       });
   }
 

@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'inscripciones',
     loadChildren: () => import('./pages/inscripciones/inscripciones.module').then((l) => l.InscripcionesModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./pages/usuarios/usuarios.module').then((l) => l.UsuariosModule)
   }
 ]
 

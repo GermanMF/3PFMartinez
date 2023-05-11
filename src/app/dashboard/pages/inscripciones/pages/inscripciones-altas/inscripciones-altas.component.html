@@ -11,11 +11,9 @@
           <mat-form-field appearance="outline">
             <mat-label> Materia </mat-label>
             <mat-select [formControl]="materiaControl">
-              <mat-option value="Español"> Español </mat-option>
-              <mat-option value="Matemáticas"> Matemáticas </mat-option>
-              <mat-option value="Civismo"> Civismo </mat-option>
-              <mat-option value="Ciencias Naturales">
-                Ciencias Naturales
+              <mat-option *ngFor="let materia of cursos"
+              [value]="materia.id">
+              {{materia.materia}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="materiaControl.hasError('required')">
@@ -23,51 +21,36 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="col">
-          <mat-form-field appearance="outline">
-            <mat-label> Grupo </mat-label>
-            <mat-select [formControl]="grupoControl">
-              <mat-option value="A"> A </mat-option>
-              <mat-option value="B"> B </mat-option>
-              <mat-option value="C"> C </mat-option>
-              <mat-option value="D"> D </mat-option>
-            </mat-select>
-            <mat-error *ngIf="grupoControl.hasError('required')">
-              Campo requerido
-            </mat-error>
-          </mat-form-field>
-        </div>
       </div>
-      <div class="row subsequentRow">
         <div class="col">
           <mat-form-field appearance="fill">
             <mat-label> Alumno </mat-label>
-            <mat-select [formControl]="estudiantesControl" multiple>
-              <mat-select-trigger>
-                {{ estudiantesControl.value?.[0] || '' }}
+            <mat-select [formControl]="alumnosControl" multiple>
+              <!-- <mat-select-trigger>
+                {{ alumnosControl.value?.[0] || '' }}
                 <span
-                  *ngIf="(estudiantesControl.value?.length || 0) > 1"
+                  *ngIf="(alumnosControl.value?.length || 0) > 1"
                   class="additional-selection"
                 >
-                  (+{{ (estudiantesControl.value?.length || 0) - 1 }}
+                  (+{{ (alumnosControl.value?.length || 0) - 1 }}
                   {{
-                    estudiantesControl.value?.length === 2 ? "other" : "others"
+                    alumnosControl.value?.length === 2 ? "other" : "others"
                   }})
                 </span>
-              </mat-select-trigger>
+              </mat-select-trigger> -->
               <mat-option
-                *ngFor="let estudiante of alumnosList"
-                [value]="estudiante"
-                >{{ estudiante }}</mat-option
+                *ngFor="let alumno of alumnos"
+                [value]="alumno.id"
+                >
+                {{ alumno | nombreCompleto }}</mat-option
               >
             </mat-select>
-            <mat-error *ngIf="estudiantesControl.hasError('required')">
+            <mat-error *ngIf="alumnosControl.hasError('required')">
               Campo requerido
             </mat-error>
           </mat-form-field>
         </div>
       </div>
-    </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

@@ -33,19 +33,21 @@
         >
           <mat-list>
             <mat-list-item>
-              <div class="row ">
-                <div class="col-6 materia-row-align">{{ materias.materia }}</div>
+              <div class="row">
+                <div class="col-6 materia-row-align">
+                  {{ materias.materia }}
+                </div>
                 <div class="col-6">
                   <button
-                  mat-icon-button
-                  color="warn"
-                  matTooltip="Eliminar materia: {{ materias.materia }} {{
-                    materias.id
-                  }}"
-                  (click)="deleteMateria(alumno!, materias.id)"
-                              >
-                  <mat-icon>remove</mat-icon>
-                              </button>
+                    mat-icon-button
+                    color="warn"
+                    matTooltip="Eliminar materia: {{ materias.materia }} {{
+                      materias.id
+                    }}"
+                    (click)="deleteMateria(alumno!, materias.id)"
+                  >
+                    <mat-icon>remove</mat-icon>
+                  </button>
                 </div>
               </div>
             </mat-list-item>
